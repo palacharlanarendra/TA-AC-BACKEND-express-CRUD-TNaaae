@@ -3,12 +3,10 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/new', (req, res) => {
-  res.send('student form');
+  res.render('studentsForm');
 });
 router.post('/', (req, res) => {
-  // grab the Data
-  //save data to database
-  // send a Response
+  res.send(req.body);
 });
 router.get('/', (req, res) => {
   res.render('students', { list: ['ankit', 'suraj', 'prashant', 'ravi'] });
