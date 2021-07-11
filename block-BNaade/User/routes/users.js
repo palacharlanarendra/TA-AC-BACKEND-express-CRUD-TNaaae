@@ -48,4 +48,11 @@ router.post('/:id', (req, res) => {
     res.redirect('/users/' + id);
   });
 });
+router.get('/:id/delete', (req, res, next) => {
+  var id = req.params.id;
+  User.findByIdAndDelete(id, (err, user) => {
+    if (err) return next(err);
+    res.redirect('/users');
+  });
+});
 module.exports = router;
